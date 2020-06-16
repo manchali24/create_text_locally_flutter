@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_pdf/pdf.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:intl/intl.dart';
+import 'package:open_file/open_file.dart';
 
 
 void main() {
@@ -38,7 +39,7 @@ class _CreateTextState extends State<CreateTextStatefulWidget> {
           children: <Widget>[
             FlatButton(
               child: Text(
-                'Generate Text file',
+                'Login (Create Text File)',
                 style: TextStyle(color: Colors.white),
               ),
               color: Colors.blue,
@@ -69,6 +70,6 @@ class _CreateTextState extends State<CreateTextStatefulWidget> {
 
     await file.writeAsString('login_time: $formattedDate\r\n', mode: FileMode.append);
     //Open the PDF document in mobile
-    //OpenFile.open('$path/input1.txt');
+     OpenFile.open('$path/logintime.txt');
   }
 }
