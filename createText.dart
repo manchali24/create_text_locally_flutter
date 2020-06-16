@@ -56,20 +56,24 @@ class _CreateTextState extends State<CreateTextStatefulWidget> {
     DateTime now = DateTime.now();
     String formattedDate = DateFormat('kk:mm:ss \n EEE d MMM').format(now);
     PdfDocument document = PdfDocument();
+    
     //Save the document
     List<int> bytes = document.save();
+    
     //Dispose the document
     document.dispose();
 
     //Get external storage directory
     Directory directory = await getExternalStorageDirectory();
+    
     //Get directory path
     String path = directory.path;
 
     File file = File('$path/logintime.txt');
 
     await file.writeAsString('login_time: $formattedDate\r\n', mode: FileMode.append);
-    //Open the PDF document in mobile
+    
+    //Open the Text document in mobile
      OpenFile.open('$path/logintime.txt');
   }
 }
